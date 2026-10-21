@@ -297,15 +297,15 @@ Résultats obtenus :
 
 Cette validation confirme que la base vectorielle peut être reconstruite à partir des documents scientifiques disponibles.
 
-Les statistiques de la section 3 correspondent au corpus initial de développement et peuvent différer de celles d'une nouvelle reconstruction.
+Les statistiques de la section 3 correspondent à la reconstruction indépendante réalisée à partir des 34 documents scientifiques.
 
 ### Étape 5 — Démarrer FastAPI
 
 Depuis la racine du projet, dans un terminal où l'environnement virtuel est activé :
 
 ```powershell
-cd src
-python -m uvicorn api:app --reload --port 8000
+
+python -m uvicorn src.api:app --reload --port 8000
 ```
 
 L'API est accessible à l'adresse :
@@ -324,8 +324,8 @@ Depuis la racine du projet, activer l'environnement virtuel puis lancer :
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
-cd src
-python -m streamlit run app.py
+
+python -m streamlit run src/app.py
 ```
 
 L'interface est accessible à l'adresse :
@@ -394,7 +394,7 @@ Un test complémentaire a été réalisé dans un dossier indépendant afin de v
 
 Les étapes suivantes ont été exécutées :
 
-1. Copie des documents scientifiques dans un nouveau dossier `corpus_complet/`.
+1. Récupération des 34 documents scientifiques depuis le dépôt GitHub.
 2. Exécution de `parser.py` pour extraire et nettoyer les documents.
 3. Exécution de `chunking.py` pour générer les chunks et les embeddings.
 4. Exécution de `indexation.py` pour créer une nouvelle base ChromaDB.
@@ -478,6 +478,10 @@ Ces commandes reconstruisent la base ChromaDB. La reconstruction indépendante a
 Pour lancer Ollama, FastAPI et Streamlit, suivre les instructions de la section 6.
 
 Aucune copie manuelle des documents n'est nécessaire.
+
+
+
+
 
 
 
