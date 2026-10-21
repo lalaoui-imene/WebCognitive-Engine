@@ -48,7 +48,7 @@ L'application propose deux espaces complémentaires.
 
 Le corpus porte sur les applications médicales des jumeaux numériques, notamment la médecine personnalisée, le diagnostic, le suivi des patients, les traitements, l'oncologie, la cardiologie et les limites techniques et éthiques.
 
-### Statistiques du corpus indexé
+### Statistiques du corpus initialement indexé
 
 | Indicateur | Valeur |
 |---|---:|
@@ -65,7 +65,11 @@ Le corpus porte sur les applications médicales des jumeaux numériques, notamme
 | HTML | 14,3 % |
 | DOCX | 5,7 % |
 
-Les statistiques sont calculées à partir des données indexées dans ChromaDB.
+Ces statistiques correspondent à la base ChromaDB utilisée pendant le développement initial.
+
+Une reconstruction indépendante a également été réalisée à partir de 34 documents, produisant 6 456 chunks. Les résultats de cette validation sont présentés dans la section 8.
+
+Les statistiques peuvent varier selon les documents disponibles et les paramètres d'indexation.
 
 ---
 
@@ -77,16 +81,16 @@ L'application repose sur une architecture modulaire.
 Documents scientifiques
         |
         v
-Extraction et nettoyage
+Extraction et nettoyage (parser.py)
         |
         v
-Segmentation en chunks
+Segmentation en chunks (chunking.py)
         |
         v
-Vectorisation des textes
+Vectorisation des textes (chunking.py)
         |
         v
-Base vectorielle ChromaDB
+Base vectorielle ChromaDB (indexation.py)
         |
         v
 Recherche sémantique
@@ -136,9 +140,9 @@ Les principaux fichiers Python sont regroupés dans le dossier `src`.
 
 | Fichier | Rôle |
 |---|---|
-| `parser.py` | Extraction des contenus documentaires |
-| `chunking.py` | Segmentation des documents |
-| `indexation.py` | Vectorisation et indexation |
+| `parser.py` | Extraction et nettoyage des documents scientifiques |
+| `chunking.py` | Segmentation des documents et génération des embeddings |
+| `indexation.py` | Indexation des vecteurs dans ChromaDB |
 | `database.py` | Gestion des données |
 | `recherche.py` | Recherche documentaire |
 | `rag.py` | Pipeline RAG et génération |
@@ -149,7 +153,17 @@ Les principaux fichiers Python sont regroupés dans le dossier `src`.
 | `app.py` | Application principale et navigation |
 | `evaluation_rag.py` | Évaluation du système RAG |
 
-Les répertoires du projet comprennent également le corpus scientifique, les données nettoyées et les données vectorisées.
+### Répertoires de données
+
+| Répertoire | Contenu |
+|---|---|
+| `corpus/` | Documents scientifiques d'origine |
+| `data_clean/` | Documents extraits et nettoyés au format JSON |
+| `data_vectors_pages/` | Chunks et embeddings générés |
+| `chroma_db/` | Base vectorielle persistante ChromaDB |
+| `evaluation/` | Fichiers d'évaluation du système |
+
+Les répertoires de données locales ne sont pas tous publiés sur GitHub. Ils peuvent être créés lors de l'exécution du pipeline.
 
 ---
 
@@ -159,9 +173,9 @@ Les répertoires du projet comprennent également le corpus scientifique, les do
 
 - Python et Git installés.
 - Ollama installé pour exécuter le modèle local `qwen2.5:7b`.
-- Un corpus documentaire disponible localement et une base ChromaDB indexée pour utiliser la recherche RAG.
+- Un corpus documentaire disponible localement pour construire la base ChromaDB.
 
-**Important :** les répertoires `corpus/`, `chroma_db/` et les données intermédiaires ne sont pas publiés dans ce dépôt. Ils doivent être fournis ou reconstitués localement. Les statistiques présentées plus haut correspondent au corpus utilisé pendant le développement ; elles peuvent varier avec un autre corpus.
+**Important :** les répertoires `corpus/`, `chroma_db/` et les données intermédiaires ne sont pas publiés dans ce dépôt. Le corpus doit être fourni localement et la base vectorielle doit être reconstruite.
 
 ### Étape 1 — Récupérer le projet
 
@@ -182,6 +196,12 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+Pour vérifier les dépendances installées :
+
+```powershell
+python -m pip check
+```
+
 Si l'activation PowerShell est bloquée par la politique d'exécution, il est également possible d'appeler directement `.venv\Scripts\python.exe` pour les commandes Python.
 
 ### Étape 3 — Préparer Ollama
@@ -198,17 +218,87 @@ Vérifier qu'Ollama est lancé. Si son service n'est pas déjà actif, démarrer
 ollama serve
 ```
 
-### Étape 4 — Préparer le corpus et la base ChromaDB
+### Étape 4 — Préparer le corpus et reconstruire ChromaDB
 
 Le dépôt ne contient pas les articles scientifiques d'origine ni la base vectorielle locale.
 
-Pour obtenir des réponses documentaires, il faut :
+Pour utiliser le système RAG, il est nécessaire de disposer de documents scientifiques dont l'utilisation est autorisée.
 
-1. Disposer des documents scientifiques dont l'utilisation est autorisée, puis les placer dans le répertoire `corpus/` à la racine du projet.
-2. Exécuter le pipeline local d'extraction, de segmentation et d'indexation à partir des scripts `src/parser.py`, `src/chunking.py` et `src/indexation.py`, avec les paramètres et chemins adaptés au corpus.
-3. Vérifier que la collection ChromaDB attendue par le moteur RAG a bien été créée avant de démarrer les services.
+**1. Préparer les documents**
 
-**Note de reproductibilité :** la commande exacte de reconstruction et les éventuels chemins codés dans les scripts d'indexation restent à vérifier sur une installation neuve. Le simple clonage du dépôt ne reconstitue pas automatiquement les 35 documents et 6 582 chunks du projet initial.
+Créer un dossier `corpus` à la racine du projet et y placer les documents scientifiques au format PDF, HTML, HTM ou DOCX.
+
+**2. Extraire et nettoyer les documents**
+
+Depuis la racine du projet, avec l'environnement virtuel activé :
+
+```powershell
+python src/parser.py
+```
+
+Cette commande :
+
+- Extrait le texte des documents scientifiques.
+- Nettoie les espaces et les retours à la ligne.
+- Conserve les numéros de page des PDF.
+- Génère les fichiers JSON dans le dossier `data_clean/`.
+
+**3. Générer les chunks et les embeddings**
+
+```powershell
+python src/chunking.py
+```
+
+Cette commande :
+
+- Découpe les textes en chunks de 500 caractères.
+- Applique un chevauchement de 100 caractères.
+- Génère les embeddings avec `all-MiniLM-L6-v2`.
+- Conserve les métadonnées documentaires et les numéros de page disponibles.
+- Enregistre les résultats dans `data_vectors_pages/`.
+
+Chaque embedding possède une dimension de 384.
+
+**4. Construire la base vectorielle ChromaDB**
+
+```powershell
+python src/indexation.py
+```
+
+Cette commande crée ou récupère la collection :
+
+`webcognitive_documents_pages`
+
+Les chunks vectorisés sont indexés dans le dossier `chroma_db/`, avec leurs textes et métadonnées.
+
+**5. Vérifier la reconstruction**
+
+Le script affiche un bilan comprenant :
+
+- Le nombre de documents trouvés.
+- Le nombre de chunks traités.
+- Le nombre d'erreurs.
+- Le nombre de vecteurs présents dans ChromaDB.
+
+**Validation réalisée :**
+
+Le pipeline complet a été exécuté avec succès dans un dossier de reconstruction indépendant, sans utiliser la base ChromaDB initiale.
+
+Résultats obtenus :
+
+| Indicateur | Résultat |
+|---|---:|
+| Documents traités | 34 |
+| Fichiers JSON nettoyés | 34 |
+| Chunks générés | 6 456 |
+| Chunks indexés | 6 456 |
+| Erreurs de vectorisation | 0 |
+| Erreurs d'indexation | 0 |
+| Chunks avec numéro de page | 5 815 |
+
+Cette validation confirme que la base vectorielle peut être reconstruite à partir des documents scientifiques disponibles.
+
+Les statistiques de la section 3 correspondent au corpus initial de développement et peuvent différer de celles d'une nouvelle reconstruction.
 
 ### Étape 5 — Démarrer FastAPI
 
@@ -282,6 +372,10 @@ Des tests manuels ont été réalisés sur les principales fonctionnalités de l
 
 | Fonctionnalité | Résultat observé |
 |---|---|
+| Clonage du dépôt GitHub | Réussi |
+| Installation des dépendances | Réussie |
+| Vérification des dépendances | Réussie |
+| Vérification syntaxique des scripts | Réussie |
 | Démarrage FastAPI | Fonctionnel |
 | Démarrage Streamlit | Fonctionnel |
 | Communication Streamlit / FastAPI | Fonctionnelle |
@@ -293,7 +387,27 @@ Des tests manuels ont été réalisés sur les principales fonctionnalités de l
 | Affichage des statistiques du corpus | Fonctionnel |
 | Affichage des graphiques | Fonctionnel |
 
-Ces vérifications confirment le fonctionnement des composants testés. Elles ne constituent pas, à elles seules, une mesure exhaustive de la précision scientifique des réponses.
+Ces tests ont été réalisés à partir d'une copie du dépôt GitHub et d'une base ChromaDB locale contenant les documents initialement indexés.
+
+### Validation de la reconstruction de la base documentaire
+
+Un test complémentaire a été réalisé dans un dossier indépendant afin de vérifier que la base ChromaDB pouvait être reconstruite sans réutiliser la base vectorielle existante.
+
+Les étapes suivantes ont été exécutées :
+
+1. Copie des documents scientifiques dans un nouveau dossier `corpus/`.
+2. Exécution de `parser.py` pour extraire et nettoyer les documents.
+3. Exécution de `chunking.py` pour générer les chunks et les embeddings.
+4. Exécution de `indexation.py` pour créer une nouvelle base ChromaDB.
+5. Vérification du nombre de vecteurs et des métadonnées de pagination.
+
+**Résultat : 34 documents traités, 6 456 vecteurs indexés et aucune erreur signalée.**
+
+La vérification des métadonnées a confirmé la présence d'un numéro de page pour 5 815 chunks.
+
+Cette expérience valide le fonctionnement de la chaîne de préparation et d'indexation sur le corpus testé.
+
+Elle ne constitue pas à elle seule une validation complète de la précision scientifique des réponses générées.
 
 ### Points à surveiller
 
@@ -314,6 +428,8 @@ Le système présente plusieurs limites :
 - Les temps de génération dépendent des ressources matérielles disponibles.
 - Certains passages peuvent être incomplets à cause de la segmentation documentaire.
 - La recherche sémantique ne garantit pas que tous les documents pertinents seront retrouvés.
+- Les documents scientifiques d'origine ne sont pas distribués dans le dépôt GitHub.
+- Une nouvelle installation nécessite la préparation d'un corpus et la reconstruction de la base vectorielle.
 
 Les réponses générées constituent une aide à l'exploration documentaire et ne doivent pas être considérées comme des recommandations médicales.
 
@@ -329,6 +445,7 @@ Plusieurs évolutions peuvent être envisagées :
 - Optimisation des performances du pipeline RAG.
 - Amélioration de la navigation entre les réponses et les documents originaux.
 - Enrichissement des visualisations statistiques.
+- Automatisation de la préparation du corpus et de la reconstruction de ChromaDB.
 
 ---
 
@@ -336,8 +453,10 @@ Plusieurs évolutions peuvent être envisagées :
 
 WebCognitive Engine illustre l'intégration de plusieurs technologies d'intelligence artificielle et de développement web dans une application documentaire complète.
 
-Le projet combine l'extraction de documents scientifiques, la recherche sémantique, la génération de réponses par un modèle local, une API REST et une interface interactive.
+Le projet combine l'extraction et le nettoyage de documents scientifiques, leur segmentation, la génération d'embeddings, la recherche sémantique, le reranking, la génération de réponses par un modèle local, une API REST et une interface interactive.
 
 L'ajout d'un module de visualisation permet également de mieux comprendre la composition du corpus et sa segmentation.
 
-Cette réalisation met en évidence l'intérêt des systèmes RAG pour l'exploration de connaissances scientifiques, tout en soulignant l'importance de la traçabilité des sources et de la validation des réponses générées.
+Les tests fonctionnels réalisés, ainsi que la reconstruction indépendante de la base ChromaDB à partir de 34 documents et de 6 456 chunks, ont permis de vérifier le fonctionnement des principales composantes techniques du projet.
+
+Cette réalisation met en évidence l'intérêt des systèmes RAG pour l'exploration de connaissances scientifiques, tout en soulignant l'importance de la traçabilité des sources, de la reproductibilité des traitements et de la validation des réponses générées.
