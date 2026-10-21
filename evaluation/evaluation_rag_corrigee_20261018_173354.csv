@@ -1,0 +1,161 @@
+﻿test;question;reponse;pertinence;fidelite;qualite_citations;clarte;note_sur_8;nombre_citations;citations_valides;citations_invalides;taux_validite_citations;sources;extraits
+1;Qu'est-ce qu'un jumeau numérique en médecine ?;"Un digital twin, dans son essence, est une représentation virtuelle sophistiquée d'une système physique ou entité qui établit un miroir exact de sa version réelle par des échanges bidirectionnels continus et réguliers. Dans le contexte médical, cela signifie créer un modèle vivant et respirant numérique du organe, de l'individu patient, d'un dispositif médical ou même une entité hospitalière complète.
+
+Source : [Source 1]";2;2;2;1;7;1;1;0;100.0;[Source 1] 07_transforming_healthcare_digital_twin.pdf (chunk 12) | [Source 2] 26_ethical_issues_digital_twins_healthcare.pdf (chunk 15) | [Source 3] 08_digital_twin_medicine_barriers_future.pdf (chunk 48) | [Source 4] 07_transforming_healthcare_digital_twin.pdf (chunk 217) | [Source 5] 25_digital_twins_socio_ethical_risks.pdf (chunk 11);"[Source 1] A digital twin, in its essence, is a sophisticated virtual representation of a physical system or entity that accurately mirrors its real-world counterpart through continuous, bidirectional data exchange. In the healthcare context, this translates to creating a living, breathing digital model of an organ, an individual patient, a medical device, or even an entire hospital system.4,5 These models are not static snapshots but dynamic entities that evolve in real-time with clinical data from elec­
+
+[Source 2] concept of digital twins, it is urgent to identify the major ethical risks of digital twins for personalized health care services. 
+
+ Objectives 
+
+ Digital twins may make health care services more proactive and personalized. With predictive algorithms and real-time data, digital twins have the potential to detect anomalies and assess health risks before a disease develops or becomes symptomatic. Information provided by digital twins can then help clinicians determine whether early intervention i
+
+[Source 3] e digital twin is a real-time, continuously changing digital representation of a physical object, be it a patient, a given organ, or an entire healthcare facility.51,52 They are real-time representations of models that can stimulate physiological processes, predict and assist clinical and operational decisions.53 
+
+ 5.1. Main elements of digital twins in healthcare 
+
+ In healthcare, digital twins (DTs) consist of three basic and inter­ connected parts: the physical entity, the virtual model, and
+
+[Source 4] ddani S. Digital Twins in Healthcare: Methodological Challenges and Opportunities. J Pers Med [Internet]. 2023 Oct 23;13(10):1522. Available from: 〈https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1 0608065/#B3-jpm-13-01522〉. 9. Sun T, He X, Song X, Shu L, Li Z. The Digital Twin in Medicine: A Key to the Future of Healthcare? Front Med. 2022 Jul 14;9. 10. Kamel Boulos MN, Zhang P. Digital Twins: From Personalised Medicine to Precision Public Health. J Pers Med. 2021 Aug 1;11(8):745. 11. Adeyinka AA,
+
+[Source 5] ured by most of them. 
+
+ A digital twin is [ … ] a living model of the physical asset or system, which continually adapts to operational changes based on the collected online data and information, and can forecast the future of the corresponding physical counterpart (Liu et al. 2018) 
+
+ Historically, the expression ‘digital twin’ is related to the nowadays more common notion of a ‘digital model’.1 As early as 1960, radiologists have started using rudimentary computational models of phantoms. Pha"
+2;Comment les jumeaux numériques peuvent-ils améliorer la médecine personnalisée ?;"Les jumeaux numériques, également connus sous le nom de digital twins, ont une capacité exceptionnelle pour améliorer la médecine personnalisée. Ils permettent d'adapter des traitements individuels en fonction du patient spécifique, ce qui est essentiel dans les maladies complexes comme les cancers et les diabètes type 2.
+
+Source : [Source 1]
+
+Les jumeaux numériques peuvent également aider à prévoir les risques individuels. Ils permettent de simuler la réponse d'un patient à différents traitements, ce qui est particulièrement utile dans le traitement des maladies chroniques comme l'hépatite post-opératoire ou la cirrhose.
+
+Source : [Source 2]
+
+Enfin, ils peuvent contribuer à réduire les coûts de santé. Les jumeaux numériques permettent d'optimiser les traitements en évitant des erreurs et en prévoyant les complications potentielles avant même qu'elles ne se produisent.
+
+Source : [Source 3]";2;1;1;2;6;3;3;0;100.0;[Source 1] 02_effectiveness_digital_twins_precision_health.pdf.pdf (chunk 45) | [Source 2] 08_digital_twin_medicine_barriers_future.pdf (chunk 174) | [Source 3] 26_ethical_issues_digital_twins_healthcare.pdf (chunk 16) | [Source 4] 08_digital_twin_medicine_barriers_future.pdf (chunk 37) | [Source 5] 29_blockchain_secure_patient_digital_twin.html (chunk 11);"[Source 1] , including cancers, type 2 diabetes, multiplesclerosis, qideﬁciency, heartfailure, post-hepatectomyliver failure, and dental issues, at the population level. Distinct from prior reviews that focused on the technological dimensions of digital twins, our analysis shows the practical applications of digital twins in healthcare. The applications have been categorized into three main areas: personalized health management, precision individual therapy effects, and predicting individual risks, encompa
+
+[Source 2] , and improve quality of life, including a personalized approach to medicine through improved treatments, detection, operational accuracy, and responsive adjustment of chronic diseases.138 
+
+ B. Reduced costs: Digital twins allow significant cost savings without 
+
+ affecting the quality by preventing pointless treatments, accelerating device development, optimizing operations, extending device life, and reducing surgical complications.139 
+
+ C. Optimized care: Digital twins can achieve real-time
+
+[Source 3] nformation provided by digital twins can then help clinicians determine whether early intervention is necessary [6,7]. Digital twins equipped with data such as patients’ genetic information and disease history may also facilitate clinicians to personalize the treatment [8,9]. Each individual has a unique genetic makeup, experiences different diseases, and lives in a different environment. These differences also make individual patients respond to different treatments in different ways. Under cer
+
+[Source 4] tending the idea to include patient-specific digital twins that integrated personal clinical data, he­ redity, and lifestyle into the modelling of disease pathology and response to treatment.39 As an example, digital twins have been used to predict how cancer patients would respond to different chemotherapy regimens, or how the patient would respond to surgical operations in cardiovascular diseases.40 Besides creating personalized care, digital twins have found use in system-related problem-solv
+
+[Source 5] be permitted in the physical world due to prohibitive financial costs, ethical or legal implications, etc. [ 4 ]. Thus, the application of Digital Twin technology to healthcare can bring many benefits, as experiments can be performed on data models to determine optimal treatments before prescribing them to the patient. Using available patient electronic medical records, data from smart devices, computing power, and analytics algorithms, a Digital Twin can be created for the patient, as shown in"
+3;Quelles sont les principales limites techniques, éthiques et cliniques des jumeaux numériques ?;"Les principales limites techniques de los angeles jumelles numériques comprennent :
+
+1. **Challenges dans l'intégration des données** : Les documents 07_transforming_healthcare_digital_twin.pdf et 28_digital_twin_ethical_legal_social_issues.pdf soulignent que les limites techniques impliquées dans la gestion de l'information, notamment le problème d'intégrer divers types de données (physiques, numériques), nécessitent une recherche continue pour améliorer leur efficacité. [Source 1]
+
+2. **Problèmes éthiques liés à la confidentialité** : Les documents 07_transforming_healthcare_digital_twin.pdf et 28_digital_twin_ethical_legal_social_issues.pdf indiquent que les limites éthiques impliquées dans le traitement des données personnelles, notamment l'incidence de l'algorithme sur la santé publique, nécessitent une gouvernance rigoureuse pour garantir un développement responsable. [Source 2]
+
+3. **Challenges cliniques liés à la mise en œuvre** : Les documents 07_transforming_healthcare_digital_twin.pdf et 28_digital_twin_ethical_legal_social_issues.pdf soulignent que les limites cliniques impliquées dans l'intégration des jumelles numériques avec le workflow actuel, notamment la nécessité de moduler les processus pour une meilleure adhésion à la pratique quotidienne et la confiance du personnel médical. [Source 2]
+
+4. **Challenges réglementaires** : Les documents";2;1;1;0;4;3;3;0;100.0;[Source 1] 07_transforming_healthcare_digital_twin.pdf (chunk 212) | [Source 2] 07_transforming_healthcare_digital_twin.pdf (chunk 7) | [Source 3] 08_digital_twin_medicine_barriers_future.pdf (chunk 162) | [Source 4] 28_digital_twin_ethical_legal_social_issues.pdf (chunk 1) | [Source 5] 07_transforming_healthcare_digital_twin.pdf (chunk 205);"[Source 1] seeking to improve care while reducing risks. 
+
+ However, significant challenges remain before digital twins can achieve widespread clinical adoption and fulfil their transformative promise. Technical barriers including data integration complexity, computational demands, and model validation difficulties require continued research and development. Ethical concerns surrounding privacy, algorithmic bias, and consent necessitate thoughtful gover­ nance frameworks balancing innovation with patient p
+
+[Source 2] ties, risk reduction, and patient engagement. However, significant challenges persist, including technical barriers in data integration, ethical concerns regarding privacy and algorithmic bias, regulatory uncertainties, and clinical adoption barriers related to workflow integration and trust. Digital twin technology holds transformative po­ tential for healthcare delivery, enabling predictive and preventive approaches. Realising this potential requires addressing technical, ethical, and regulato
+
+[Source 3] erous challenges and limitations must be addressed to ensure its safe, effective, and ethical integration into healthcare systems. These issues span ethical, technical, regulatory, and infrastructural do­ mains. Overcoming them is critical for realizing the full potential of digital twins while safeguarding patients and healthcare providers.62 
+
+ Digital twins enable hospitals to model different staffing conditions, equipment availability, and procedures.133 This allows for resource optimization
+
+[Source 4] pted: 20 December 2025 / Published online: 7 February 2026 © The Author(s) 2026 
+
+ Abstract This paper examines ethical, legal, and social issues (ELSI) associated with healthcare digital twins (DTs). Using a systematic thematic analysis, we identify key themes across ethical, legal, and social categories, as well as practical barriers to adoption and implementation. Findings reveal a range of concerns (e.g. lack of empirical validation of DT value propositions) and gaps between the promise of h
+
+[Source 5] licability and challenges in low- and middle-income set­ tings where healthcare infrastructure, data availability, and technical capacity differ substantially. 
+
+ Finally, while we attempted to address ethical, legal, and social implications, these topics deserve more extensive analysis than provided here. Dedicated examinations of the ethical dimensions, regulatory challenges, or health equity implications of digital twins would com­ plement the primarily technical focus of this review. 
+
+ Desp"
+4;Comment les jumeaux numériques peuvent-ils aider à prédire les maladies ?;"Les jumeaux numériques sont des outils informatiques qui permettent de simuler et d'analyser le comportement de systèmes complexes, tels que l'hépatogastroentérographie (HGG) ou les réseaux neuronaux. Ils jouent un rôle crucial dans la prédiction des maladies par leur capacité à reproduire les résultats observés sur une base statistique.
+
+[Source 1]
+Les jumeaux numériques peuvent aider à prédire les maladies en simulant et analysant le comportement de systèmes complexes, tels que l'HGG ou les réseaux neuronaux. Ils permettent d'identifier des tendances et des modèles prédictifs qui pourraient être utilisés pour anticiper la progression du cancer.
+
+[Source 2]
+Les jumeaux numériques peuvent aider à prédire les maladies en simulant le comportement de systèmes complexes, tels que l'HGG ou les réseaux neuronaux. Ils permettent d'identifier des tendances et des modèles prédictifs qui pourraient être utilisés pour anticiper la progression du cancer.
+
+[Source 3]
+Les jumeaux numériques peuvent aider à prédire les maladies en simulant le comportement de systèmes complexes, tels que l'HGG ou les réseaux neuronaux. Ils permettent d'identifier des tendances et des modèles prédictifs qui pourraient être utilisés pour anticiper la progression du cancer.
+
+[Source 4]
+Les jumeaux numériques peuvent aider à prédire les maladies en simulant le";1;0;0;0;1;4;4;0;100.0;[Source 1] 02_effectiveness_digital_twins_precision_health.pdf.pdf (chunk 67) | [Source 2] 21_digital_twin_neurological_conditions.pdf.pdf (chunk 70) | [Source 3] 17_precision_oncology_digital_virtual_twins.pdf (chunk 66) | [Source 4] 11_cardiovascular_digital_twin_generative_AI.pdf (chunk 219) | [Source 5] 19_medical_digital_twin_diabetes.pdf (chunk 18);"[Source 1] rate +3.73(-0.75, 8.96) N Risk of Dysphagia 
+
+ Tardini et al. Oropharyngeal squamous carcinomas 
+
+ Dysphagia rate +0.75 (-4.48, 6.72) N 
+
+ Maleki et al. Multiple sclerosis ARR 0.191 (0.143, 0.239) Y NR 
+
+ Lymphocytopenia adverse events 19.9% VS 83.73%a Y 
+
+ Cen et al. Prediction of individual risk Onset age p < 0.01 Y NR 
+
+ Golse et al. Major hepatectomy PPV r = 0.75, p < 0.0001 Y NR 
+
+ PCG r = 0.80, p < 0.0001 Y 
+
+ Cho et al. Dental problems Maxillary central incisors p = 0.04 Y NR 
+
+ Forehead
+
+[Source 2] les within a single computa­ tional framework. 
+
+ The included studies employed diverse methodological designs and publication formats. Computational modeling and proof-of-concept studies constituted the largest group (n = 16, 44.4%), followed by retrospective clinical or simula­ tion studies (n = 10, 27.8%), methodological or frameworkdevelopment studies (n = 5, 13.9%), prospective validation studies (n = 2, 5.6%), expert consensus studies (n = 1, 2.8%), and conceptual framework or position stu
+
+[Source 3] rom 5,417,699 residents aged 50–69 years. The targeted patients included by Bahrami et al. were aged from 40 to 68 years [66] and, respectively, 67.6 ± 13.4 years (range 43 to 85 years) [66]. The patients described by Tai et al. [71] were age between 40 and 70 years, and 35.7% were women. Kim et al. [73] targeted male patients with a mean age of 67.37 years (range: 46 to 83 years). The average age and standard deviation of patients reported by Peterson et al. [77] was 53.4 (10.2) years. 
+
+ Table
+
+[Source 4] coepidemiological evaluation in LEGEND-T2DM. BMJ Med 2023;2: e000651. https://doi.org/10.1136/bmjmed-2023-000651 143. Majumder MA, Guerrini CJ, Bollinger JM, Cook-Deegan R, McGuire AL. Sharing data under the 21st Century Cures Act. Genet Med 2017;19:1289–94. https://doi.org/10. 1038/gim.2017.59 144. UNESCO. Open Data. 2024. https://www.unesco.org/en/open-solutions/open-data (2 July 2024) 145. Kessel R, Srivastava D, Kyriopoulos I, Monti G, Novillo-Ortiz D, Milman R, et al. Digital health reimbur
+
+[Source 5] e in many, but not all, V. cholerae strains [23,25–27]. 
+
+ Table 1. Amino acid variations of toxT alleles introduced into the V. cholerae strains in this study. 
+
+ toxT Amino Acid Position 
+
+ toxT Allele Found in 
+
+ Allele Name 65 139 
+
+ V. cholerae strains S Y toxT-SY MG116025 S F toxT-SF 569B A Y toxT-AY 569B + MG116025 A F toxT-AF 
+
+ We have identiﬁed another variant toxT allele in a classical biotype strain, 569B, that contains Ala at amino acid position 65 (toxT-65A-139Y, or toxT-AY, Table"
+5;Quels sont les enjeux de confidentialité des données médicales ?;"Les enjeux de confidentialité des données médicales comprennent :
+
+1. **Protection contre l'identification indépendante** : Les modèles utilisés pour créer les Digital Twins peuvent être identifiés par d'autres sources, ce qui peut compromettre la sécurité et la confiance dans le traitement du patient.
+
+2. **Évaluation régulière des modèles de prédiction** : Pour préserver l'intégrité des données médicales, il est essentiel de tester les modèles fréquemment avec des mesures d'anonymisation pour éviter la réidentification et le retraitement indésirables.
+
+3. **Restriction du contenu accessible à partir du Digital Twin** : L'accès limité au patient peut minimiser l'impact potentiel sur sa vie privée, protégeant ainsi son image et ses revenus financiers potentiels.
+
+4. **Éthique des données personnelles** : Les données médicales sont souvent considérées comme sensibles et nécessitent une attention particulière pour leur traitement et leur utilisation, notamment en ce qui concerne la protection de l'anonymat et du respect de la vie privée des patients.
+
+5. **Risque d'exploitation des informations personnelles** : Les données médicales peuvent être exploitées malgré les mesures éthiques prises pour protéger le patient, comme par exemple dans certains cas où elles sont vendues ou utilisées sans consentement explicite du patient.
+
+Source 1: [Source 3]
+Source 2: [Source 4]";2;1;1;1;5;2;2;0;100.0;[Source 1] 29_blockchain_secure_patient_digital_twin.html (chunk 64) | [Source 2] 17_precision_oncology_digital_virtual_twins.pdf (chunk 110) | [Source 3] 04_digital_twins_healthcare_precision_medicine.pdf (chunk 117) | [Source 4] 29_blockchain_secure_patient_digital_twin.html (chunk 14) | [Source 5] 11_cardiovascular_digital_twin_generative_AI.pdf (chunk 87);"[Source 1] ces that the patient receives require data sharing transactions with other entities within the hospital or outside of it. Hence, the patient’s medical record is essential for proper care and can also be shared with other healthcare providers as necessary upon authorised request. Query System: The Query System has three components and processes users’ requests for access to the patient Digital Twin. The first is the Authentication module which verifies the source and destination of requests befor
+
+[Source 2] privacy and confidentiality were considered. Bahrami et al. [50] did not explicitly present privacy and confidentiality; however, the use of de-identified data suggests that these considerations were addressed in the design of the study. Gamage et al. [64] acknowledged privacy and confidentiality as critical aspects of the platform. Bahrami et al. [66] acknowledged privacy and confidentiality, as their study adhered to ethical standards and used anonymized data to protect the patients. 
+
+ In gen
+
+[Source 3] necessary for the effective implementation of DHTs in the healthcare industry. Confidentiality and security are crucial, but the access to and integration of such sensitive data—including biological, physical, and lifestyle data—by insurance companies or healthcare organizations raise ethical questions [34]. To prevent unauthorized access, security breaches, and potential misuse of these sensitive data, it is essential to establish strong data privacy and security measures. 
+
+ Insurance compani
+
+[Source 4] ce his/her treatment may be based on the output the Digital Twin demonstrates. Additionally, unauthorized access to the Digital Twin can reveal compromising details about the patient that may cause long-term damage to their reputation with adverse financial consequences. Hence, it is critical to demand guarantees on the security of the Digital Twin and also to restrict the information it provides when queried. This research proposes a mechanism to handle four key research points: access control,
+
+[Source 5] included indi­ viduals. However, there is often under-enrolment of key populations 
+
+ 4816 Thangaraj et al. 
+
+ Ensuring data privacy Digital twins in cardiovascular medicine use sensitive health information drawn from the EHR, genomic and other diagnostic testing, and con­ tinuously connected wearable devices, requiring special precautions for storage and access to prevent re-identification.117 The models must be evaluated frequently with differential privacy measures for any leakage of the tra"

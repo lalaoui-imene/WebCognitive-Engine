@@ -1,0 +1,15 @@
+streamlit
+fastapi
+uvicorn
+httpx
+chromadb
+sentence-transformers
+requests
+pandas
+numpy
+plotly
+pymupdf
+python-docx
+beautifulsoup4
+lxml
+tqdm

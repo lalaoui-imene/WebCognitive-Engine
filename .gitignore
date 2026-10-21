@@ -1,0 +1,29 @@
+# Fichiers temporaires Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Base vectorielle locale
+chroma_db/
+
+# Données générées
+data_clean/
+data_vectors/
+data_vectors_pages/
+
+# Fichiers locaux et temporaires
+.env
+*.log
+.DS_Store
+Thumbs.db
+
+# Configuration locale
+.vscode/
+.streamlit/secrets.toml
+# Documents scientifiques du corpus
+corpus/
