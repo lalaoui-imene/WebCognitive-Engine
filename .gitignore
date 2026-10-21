@@ -27,3 +27,5 @@ Thumbs.db
 .streamlit/secrets.toml
 # Documents scientifiques du corpus
 corpus/
+# Corpus complet en attente de verification des licences
+corpus_complet/
