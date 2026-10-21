@@ -501,3 +501,62 @@ L'application permet ensuite de poser des questions scientifiques et de consulte
 Le corpus de démonstration contient un seul article scientifique. Les réponses et les statistiques affichées seront donc différentes de celles obtenues avec le corpus complet de 34 documents utilisé lors de la validation technique.
 
 Les références bibliographiques et les informations de licence sont disponibles dans `corpus_demo/README.md`.
+
+## 13. Reconstruction avec le corpus scientifique complet
+
+Le projet WebCognitive Engine a été développé et testé à partir d'un corpus de 34 documents scientifiques consacrés aux jumeaux numériques médicaux.
+
+Ce corpus comprend :
+- 28 documents PDF ;
+- 4 documents HTML ;
+- 2 documents DOCX.
+
+Les documents abordent notamment la médecine personnalisée, la cardiologie, l'oncologie, le diabète, la neurologie et les enjeux éthiques des jumeaux numériques.
+
+### 13.1. Accès aux documents
+
+Le fichier `inventaire_corpus.csv` contient la liste des 34 documents utilisés.
+
+Le corpus complet n'est pas inclus dans le dépôt GitHub public. Certains documents nécessitent une vérification de leurs droits de redistribution.
+
+Pour reproduire l'expérience avec les 34 documents, il faut disposer de copies obtenues légalement et autorisées pour cet usage.
+
+### 13.2. Préparation du corpus
+
+Depuis la racine du projet, créer le dossier `corpus` :
+
+```powershell
+New-Item -ItemType Directory -Path corpus -Force
+```
+
+Placer ensuite les 34 documents dans ce dossier, en conservant leurs noms d'origine.
+
+### 13.3. Reconstruction de la base vectorielle
+
+Après installation des dépendances Python, exécuter successivement :
+
+```powershell
+python src/parser.py
+python src/chunking.py
+python src/indexation.py
+```
+
+Ces scripts permettent d'extraire les contenus documentaires, de générer les chunks et leurs embeddings, puis de reconstruire la base vectorielle ChromaDB.
+
+Lors d'une reconstruction indépendante, les 34 documents ont produit **6 456 chunks**, sans erreur d'indexation.
+
+### 13.4. Lancement et validation
+
+Suivre les instructions d'installation du README pour démarrer Ollama, FastAPI et Streamlit.
+
+L'application permet d'interroger le corpus à l'aide du système RAG, de consulter les sources associées aux réponses et d'explorer les visualisations documentaires.
+
+Les résultats peuvent varier selon les versions des dépendances, le modèle local utilisé et les documents effectivement indexés.
+
+### 13.5. Reproductibilité et limites
+
+La démonstration disponible directement sur GitHub repose sur un seul article scientifique.
+
+La reproduction avec les 34 documents nécessite de disposer du corpus complet. L'inventaire facilite l'identification des fichiers, mais ne constitue pas une autorisation de redistribution.
+
+Le système est destiné à l'exploration documentaire scientifique et ne fournit pas de recommandations médicales.
