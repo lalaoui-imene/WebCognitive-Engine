@@ -1,4 +1,4 @@
-
+﻿
 from pathlib import Path
 import json
 
@@ -297,7 +297,7 @@ def poser_question(donnees: QuestionRAG):
 
     try:
 
-        from rag import (
+        from src.rag import (
             rechercher_passages,
             generer_reponse
         )
@@ -374,3 +374,4 @@ def poser_question(donnees: QuestionRAG):
             status_code=500,
             detail=str(erreur)
         )
+
