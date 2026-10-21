@@ -460,3 +460,44 @@ L'ajout d'un module de visualisation permet également de mieux comprendre la co
 Les tests fonctionnels réalisés, ainsi que la reconstruction indépendante de la base ChromaDB à partir de 34 documents et de 6 456 chunks, ont permis de vérifier le fonctionnement des principales composantes techniques du projet.
 
 Cette réalisation met en évidence l'intérêt des systèmes RAG pour l'exploration de connaissances scientifiques, tout en soulignant l'importance de la traçabilité des sources, de la reproductibilité des traitements et de la validation des réponses générées.
+
+---
+
+## 12. Démonstration avec le corpus fourni
+
+Le dépôt GitHub contient un dossier `corpus_demo/` comprenant un article scientifique sur les jumeaux numériques en médecine personnalisée, distribué sous licence Creative Commons CC BY 4.0.
+
+Ce corpus de démonstration permet de tester le pipeline documentaire sans disposer du corpus scientifique complet utilisé pendant le développement.
+
+### 12.1. Préparation du corpus
+
+Depuis la racine du projet, dans PowerShell :
+
+```powershell
+New-Item -ItemType Directory -Path corpus -Force
+Copy-Item corpus_demo\*.pdf corpus\
+```
+
+### 12.2. Reconstruction de la base vectorielle
+
+Après avoir installé les dépendances Python :
+
+```powershell
+python src/parser.py
+python src/chunking.py
+python src/indexation.py
+```
+
+Ces commandes permettent successivement d'extraire et de nettoyer les documents, de générer les chunks et leurs embeddings, puis de les indexer dans ChromaDB.
+
+### 12.3. Lancement de l'application
+
+Suivre les instructions d'installation du README principal pour démarrer Ollama, FastAPI et Streamlit.
+
+L'application permet ensuite de poser des questions scientifiques et de consulter les sources documentaires utilisées.
+
+### 12.4. Limites de la démonstration
+
+Le corpus de démonstration contient un seul article scientifique. Les réponses et les statistiques affichées seront donc différentes de celles obtenues avec le corpus complet de 34 documents utilisé lors de la validation technique.
+
+Les références bibliographiques et les informations de licence sont disponibles dans `corpus_demo/README.md`.
