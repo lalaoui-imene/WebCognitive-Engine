@@ -1,4 +1,4 @@
-
+﻿
 # 🧠 WebCognitive Engine
 
 ## 1. Présentation du projet
@@ -157,7 +157,7 @@ Les principaux fichiers Python sont regroupés dans le dossier `src`.
 
 | Répertoire | Contenu |
 |---|---|
-| `corpus/` | Documents scientifiques d'origine |
+| `corpus_complet/` | Documents scientifiques d'origine |
 | `data_clean/` | Documents extraits et nettoyés au format JSON |
 | `data_vectors_pages/` | Chunks et embeddings générés |
 | `chroma_db/` | Base vectorielle persistante ChromaDB |
@@ -175,7 +175,7 @@ Les répertoires de données locales ne sont pas tous publiés sur GitHub. Ils p
 - Ollama installé pour exécuter le modèle local `qwen2.5:7b`.
 - Un corpus documentaire disponible localement pour construire la base ChromaDB.
 
-**Important :** les répertoires `corpus/`, `chroma_db/` et les données intermédiaires ne sont pas publiés dans ce dépôt. Le corpus doit être fourni localement et la base vectorielle doit être reconstruite.
+**Important :** les 34 documents scientifiques sont disponibles dans le dossier `corpus_complet/` du dépôt GitHub. La base vectorielle `chroma_db/` et les données intermédiaires doivent être reconstruites localement en suivant les étapes ci-dessous.
 
 ### Étape 1 — Récupérer le projet
 
@@ -395,7 +395,7 @@ Un test complémentaire a été réalisé dans un dossier indépendant afin de v
 
 Les étapes suivantes ont été exécutées :
 
-1. Copie des documents scientifiques dans un nouveau dossier `corpus/`.
+1. Copie des documents scientifiques dans un nouveau dossier `corpus_complet/`.
 2. Exécution de `parser.py` pour extraire et nettoyer les documents.
 3. Exécution de `chunking.py` pour générer les chunks et les embeddings.
 4. Exécution de `indexation.py` pour créer une nouvelle base ChromaDB.
@@ -428,8 +428,8 @@ Le système présente plusieurs limites :
 - Les temps de génération dépendent des ressources matérielles disponibles.
 - Certains passages peuvent être incomplets à cause de la segmentation documentaire.
 - La recherche sémantique ne garantit pas que tous les documents pertinents seront retrouvés.
-- Les documents scientifiques d'origine ne sont pas distribués dans le dépôt GitHub.
-- Une nouvelle installation nécessite la préparation d'un corpus et la reconstruction de la base vectorielle.
+- Les 34 documents scientifiques sont disponibles dans corpus_complet/.
+- Une nouvelle installation nécessite la reconstruction de la base vectorielle à partir du corpus fourni.
 
 Les réponses générées constituent une aide à l'exploration documentaire et ne doivent pas être considérées comme des recommandations médicales.
 
@@ -560,3 +560,5 @@ La démonstration disponible directement sur GitHub repose sur un seul article s
 La reproduction avec les 34 documents nécessite de disposer du corpus complet. L'inventaire facilite l'identification des fichiers, mais ne constitue pas une autorisation de redistribution.
 
 Le système est destiné à l'exploration documentaire scientifique et ne fournit pas de recommandations médicales.
+
+

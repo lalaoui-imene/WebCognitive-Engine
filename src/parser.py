@@ -1,4 +1,4 @@
-
+﻿
 from pathlib import Path
 from datetime import datetime
 import re
@@ -15,7 +15,7 @@ from docx import Document
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CORPUS_DIR = BASE_DIR / "corpus"
+CORPUS_DIR = BASE_DIR / "corpus_complet"
 DATA_CLEAN_DIR = BASE_DIR / "data_clean"
 
 FORMATS_ACCEPTES = {".pdf", ".html", ".htm", ".docx"}
@@ -421,3 +421,4 @@ if fichier_test.exists():
         print(
             page["texte"][:200]
         )
+
