@@ -157,63 +157,65 @@ Les répertoires du projet comprennent également le corpus scientifique, les do
 
 ### Prérequis
 
-- Python
-- Ollama
-- Les dépendances Python nécessaires au projet
-- Le modèle local `qwen2.5:7b`
-- La base ChromaDB du projet
+- Python et Git installés.
+- Ollama installé pour exécuter le modèle local `qwen2.5:7b`.
+- Un corpus documentaire disponible localement et une base ChromaDB indexée pour utiliser la recherche RAG.
 
-### Étape 1 — Ouvrir le projet
+**Important :** les répertoires `corpus/`, `chroma_db/` et les données intermédiaires ne sont pas publiés dans ce dépôt. Ils doivent être fournis ou reconstitués localement. Les statistiques présentées plus haut correspondent au corpus utilisé pendant le développement ; elles peuvent varier avec un autre corpus.
 
-Dans un terminal PowerShell :
+### Étape 1 — Récupérer le projet
+
+Dans un terminal PowerShell, depuis le dossier où vous souhaitez installer le projet :
 
 ```powershell
-cd C:\Users\celia\Desktop\WebCognitive
+git clone https://github.com/lalaoui-imene/WebCognitive-Engine.git
+cd WebCognitive-Engine
 ```
 
-### Étape 2 — Créer un environnement virtuel
+### Étape 2 — Créer un environnement virtuel et installer les dépendances
 
-Lors de la première installation :
+À la racine du projet :
 
 ```powershell
 python -m venv .venv
-```
-
-Activer l'environnement :
-
-```powershell
 .\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 ```
 
-Installer les dépendances du projet dans cet environnement.
+Si l'activation PowerShell est bloquée par la politique d'exécution, il est également possible d'appeler directement `.venv\Scripts\python.exe` pour les commandes Python.
 
 ### Étape 3 — Préparer Ollama
 
-Vérifier qu'Ollama est installé et disponible.
-
-Télécharger le modèle si nécessaire :
+Télécharger le modèle local :
 
 ```powershell
 ollama pull qwen2.5:7b
 ```
 
-Démarrer Ollama si son service n'est pas déjà actif :
+Vérifier qu'Ollama est lancé. Si son service n'est pas déjà actif, démarrer dans un terminal séparé :
 
 ```powershell
 ollama serve
 ```
 
-### Étape 4 — Démarrer FastAPI
+### Étape 4 — Préparer le corpus et la base ChromaDB
 
-Ouvrir un terminal dans le dossier `src` :
+Le dépôt ne contient pas les articles scientifiques d'origine ni la base vectorielle locale.
+
+Pour obtenir des réponses documentaires, il faut :
+
+1. Disposer des documents scientifiques dont l'utilisation est autorisée, puis les placer dans le répertoire `corpus/` à la racine du projet.
+2. Exécuter le pipeline local d'extraction, de segmentation et d'indexation à partir des scripts `src/parser.py`, `src/chunking.py` et `src/indexation.py`, avec les paramètres et chemins adaptés au corpus.
+3. Vérifier que la collection ChromaDB attendue par le moteur RAG a bien été créée avant de démarrer les services.
+
+**Note de reproductibilité :** la commande exacte de reconstruction et les éventuels chemins codés dans les scripts d'indexation restent à vérifier sur une installation neuve. Le simple clonage du dépôt ne reconstitue pas automatiquement les 35 documents et 6 582 chunks du projet initial.
+
+### Étape 5 — Démarrer FastAPI
+
+Depuis la racine du projet, dans un terminal où l'environnement virtuel est activé :
 
 ```powershell
-cd C:\Users\celia\Desktop\WebCognitive\src
-```
-
-Exécuter :
-
-```powershell
+cd src
 python -m uvicorn api:app --reload --port 8000
 ```
 
@@ -225,17 +227,15 @@ Sa documentation interactive est disponible à :
 
 http://127.0.0.1:8000/docs
 
-### Étape 5 — Démarrer Streamlit
+### Étape 6 — Démarrer Streamlit
 
-Ouvrir un deuxième terminal, sans fermer FastAPI.
+Ouvrir **un deuxième terminal**, sans arrêter FastAPI.
 
-```powershell
-cd C:\Users\celia\Desktop\WebCognitive\src
-```
-
-Exécuter :
+Depuis la racine du projet, activer l'environnement virtuel puis lancer :
 
 ```powershell
+.\.venv\Scripts\Activate.ps1
+cd src
 python -m streamlit run app.py
 ```
 
@@ -243,16 +243,14 @@ L'interface est accessible à l'adresse :
 
 http://localhost:8501
 
-### Étape 6 — Utiliser l'application
+### Étape 7 — Utiliser l'application
 
 Dans la barre latérale, sélectionner :
 
-- **Assistant scientifique** pour interroger les documents.
+- **Assistant scientifique** pour poser des questions au corpus et consulter les citations.
 - **Analyse du corpus** pour consulter les statistiques et graphiques.
 
-Pour obtenir une réponse scientifique, saisir une question et attendre la génération du texte.
-
-Les sources documentaires sont consultables sous la réponse.
+Pour interroger les documents, la base ChromaDB et le service Ollama doivent être disponibles.
 
 ---
 
