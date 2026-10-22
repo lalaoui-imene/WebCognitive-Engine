@@ -142,8 +142,6 @@ Les principaux fichiers Python sont regroupés dans le dossier `src`.
 | `parser.py` | Extraction et nettoyage des documents scientifiques |
 | `chunking.py` | Segmentation des documents et génération des embeddings |
 | `indexation.py` | Indexation des vecteurs dans ChromaDB |
-| `database.py` | Gestion des données |
-| `recherche.py` | Recherche documentaire |
 | `rag.py` | Pipeline RAG et génération |
 | `api.py` | API REST FastAPI |
 | `interface.py` | Assistant scientifique Streamlit |
